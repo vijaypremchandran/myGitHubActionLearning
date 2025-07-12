@@ -10,10 +10,19 @@ jobs:
         - name: Print Hello World frm first job
           run: echo "Hello World from my first job"
 
-    my-seond-job:
+    my-second-job:
         name: My second job
         runs-on: Ubuntu-latest
         steps:
         - name: Print Hello World from second job
           run: echo "Hello World from my second job"
         needs: my-first-job
+    
+    my-third-job:
+        name: My third job - runs a shell script
+        runs-on: Ubuntu-latest
+        steps:
+        - name: Print Hello World from third job
+          run: ./MyDemoTestApplication/hello.sh
+        needs: [my-first-job, my-second-job]
+        
