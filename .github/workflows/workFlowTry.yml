@@ -1,0 +1,19 @@
+name: Trying work flow from scratch
+run-name : myFirstWorkFlow
+on: push
+
+jobs:
+    my-first-job:
+        name: My First job
+        runs-on: Ubuntu-latest
+        steps:
+        - name: Print Hello World frm first job
+          run: echo "Hello World from my first job"
+
+    my-seond-job:
+        name: My second job
+        runs-on: Ubuntu-latest
+        steps:
+        - name: Print Hello World from second job
+          run: echo "Hello World from my second job"
+        needs: my-first-job
