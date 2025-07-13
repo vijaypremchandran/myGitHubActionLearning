@@ -22,7 +22,10 @@ jobs:
         name: My third job - runs a shell script
         runs-on: Ubuntu-latest
         steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
+        - name: Make hello.sh executable
+          run: chmod +x MyDemoTestApplication/hello.sh
         - name: Print Hello World from third job
           run: ./MyDemoTestApplication/hello.sh
         needs: [my-first-job, my-second-job]
-        
