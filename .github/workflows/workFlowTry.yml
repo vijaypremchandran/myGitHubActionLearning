@@ -29,3 +29,11 @@ jobs:
         - name: Print Hello World from third job
           run: ./MyDemoTestApplication/hello.sh
         needs: [my-first-job, my-second-job]
+    my-fourth-job:
+        name: My fourth job - prints secret or environment variable
+        runs-on: Ubuntu-latest
+        steps:
+        - name: Print secret or environment variable
+          env:
+            MY_SECRET: "Vijay Chandran"
+          run: echo "Hello $MY_SECRET from my fourth job"
